@@ -2,6 +2,9 @@ package com.service;
 
 import com.entity.AppUser;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.entity.userPage;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +15,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2023-04-05
  */
 public interface AppUserService extends IService<AppUser> {
+    public userPage getAppUser();
 
 }

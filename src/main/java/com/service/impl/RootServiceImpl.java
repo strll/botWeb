@@ -45,7 +45,7 @@ public class RootServiceImpl extends ServiceImpl<RootMapper, Root> implements Ro
         String s = SecureUtil.md5(password);
         QueryWrapper<Root> rootQueryWrapper = new QueryWrapper<>();
         rootQueryWrapper.eq("account",name);
-        rootQueryWrapper.eq("password",password);
+        rootQueryWrapper.eq("password",s);
         Root root = rootMapper.selectOne(rootQueryWrapper);
         return root;
     }
