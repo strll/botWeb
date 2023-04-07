@@ -3,6 +3,8 @@ package com.service;
 import com.entity.Todayeat;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -12,5 +14,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2023-04-05
  */
 public interface TodayeatService extends IService<Todayeat> {
-
+        public List getAllTodayeat();
 }

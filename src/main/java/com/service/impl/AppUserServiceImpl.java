@@ -1,11 +1,8 @@
 package com.service.impl;
 
-import cn.hutool.core.convert.Convert;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.entity.AppUser;
-import com.entity.userPage;
+import com.entity.WebEntity.userPage;
 import com.mapper.AppUserMapper;
 import com.service.AppUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

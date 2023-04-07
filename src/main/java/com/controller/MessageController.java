@@ -1,6 +1,8 @@
 package com.controller;
 
 
+import cn.dev33.satoken.annotation.SaCheckLogin;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @author wxt
  * @since 2023-04-05
  */
+@CrossOrigin
+@SaCheckLogin
 @RestController
 @RequestMapping("/message")
 public class MessageController {

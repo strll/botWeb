@@ -1,5 +1,6 @@
 package com.controller;
 
+import cn.dev33.satoken.annotation.SaCheckLogin;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
 import com.entity.LoginData;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
+@SaCheckLogin
 @RequestMapping("/login")
 public class LoginController {
     @Autowired
@@ -18,14 +20,13 @@ public class LoginController {
     public SaResult doLogin(@RequestBody LoginData loginData) {
        String pwd =loginData.getPassword();
        String name=loginData.getUsername();
-
-        // 此处仅作模拟示例，真实项目需要从数据库中查询数据进行比对
         Root root = rootService.loginRoot(name, pwd);
         if (null!=root){
             Integer id = root.getId();
             StpUtil.login(id);
        //     return SaResult.ok("登录成功");
-            return SaResult.ok("登录成功").setData(StpUtil.getTokenInfo());
+            String tokenValue = StpUtil.getTokenInfo().getTokenValue();
+            return SaResult.ok("登录成功").setData(tokenValue);
         }
         return SaResult.error("登录失败").setData(null);
     }

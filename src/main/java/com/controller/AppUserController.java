@@ -1,8 +1,8 @@
 package com.controller;
 
 
+import cn.dev33.satoken.annotation.SaCheckLogin;
 import cn.dev33.satoken.util.SaResult;
-import com.entity.userPage;
 import com.service.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @CrossOrigin
 @RestController
+@SaCheckLogin
 @RequestMapping("/appuser")
 public class AppUserController {
     @Autowired

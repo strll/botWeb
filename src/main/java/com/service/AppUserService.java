@@ -2,9 +2,7 @@ package com.service;
 
 import com.entity.AppUser;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.entity.userPage;
-
-import java.util.List;
+import com.entity.WebEntity.userPage;
 
 /**
  * <p>

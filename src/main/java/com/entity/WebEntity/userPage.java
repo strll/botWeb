@@ -1,5 +1,6 @@
-package com.entity;
+package com.entity.WebEntity;
 
+import com.entity.AppUser;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
