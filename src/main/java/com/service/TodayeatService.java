@@ -15,4 +15,7 @@ import java.util.List;
  */
 public interface TodayeatService extends IService<Todayeat> {
         public List getAllTodayeat();
+        public void deleteTodayeat(String id);
+
+        List selectlike(String message);
 }

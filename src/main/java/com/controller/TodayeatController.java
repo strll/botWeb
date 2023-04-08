@@ -2,6 +2,7 @@ package com.controller;
 
 
 import cn.dev33.satoken.annotation.SaCheckLogin;
+import cn.dev33.satoken.util.SaResult;
 import com.entity.WebEntity.WebTodayEat;
 import com.service.impl.TodayeatServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +30,21 @@ public class TodayeatController {
 @Autowired
     private TodayeatServiceImpl todayeatService;
 @GetMapping("/alltodayeat")
-    public List getallTodayeat(){
+    public SaResult getallTodayeat(){
     List<WebTodayEat> allTodayeat = todayeatService.getAllTodayeat();
-    return allTodayeat;
+    return  SaResult.ok().setData(allTodayeat) ;
 }
+    @GetMapping("/deletetodayeat")
+    public SaResult deleteTodayeat(String id){
+       todayeatService.deleteTodayeat(id);
+        return  SaResult.ok();
+    }
 
+    @GetMapping("/selectliketodayeat")
+    public SaResult selectlikeTodayeat(String message){
+       List re=  todayeatService.selectlike(message);
+        return  SaResult.ok().setData(re);
+    }
 
 }
 

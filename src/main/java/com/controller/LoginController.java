@@ -9,9 +9,11 @@ import com.service.impl.RootServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 @CrossOrigin
 @RestController
-@SaCheckLogin
+
 @RequestMapping("/login")
 public class LoginController {
     @Autowired
@@ -26,6 +28,7 @@ public class LoginController {
             StpUtil.login(id);
        //     return SaResult.ok("登录成功");
             String tokenValue = StpUtil.getTokenInfo().getTokenValue();
+            System.out.println("登陆token为"+StpUtil.getTokenInfo().getTokenValue());
             return SaResult.ok("登录成功").setData(tokenValue);
         }
         return SaResult.error("登录失败").setData(null);
@@ -33,6 +36,13 @@ public class LoginController {
     @RequestMapping("isLogin")
     public SaResult isLogin() {
         return SaResult.ok("是否登录：" + StpUtil.isLogin());
+    }
+
+    @RequestMapping("LoginOut")
+    public SaResult LoginOut(@CookieValue("satoken") String username) {
+
+        StpUtil.logout();
+        return SaResult.ok("退出登陆");
     }
     @RequestMapping("Login")
     public void isLogin1() {
